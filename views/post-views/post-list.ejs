@@ -1,0 +1,12 @@
+<h2>My Posts</h2>
+
+<ul>
+  <%listOfPosts.forEach((onePost) => {%>
+    <li>
+      <h3><%=onePost.title%></h3>
+      <img src="<%=onePost.photoUrl%>" />
+      <p><%=onePost.description%></p>
+      <p>Owner: <%=onePost.owner%></p>
+    </li>
+<%  }) %>
+</ul>
