@@ -5,6 +5,12 @@ const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
+const session      = require('express-session');
+const passport     = require('passport');
+
+require("./config/mongoose-setup");
+
+require("./config/passport-setup");
 
 
 const app = express();
@@ -14,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Athleisure';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,9 +30,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: 'this string is to avoid errors'
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req,res,next) => {
+    res.locals.currentUser = req.user;
+
+    next();
+});
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const myUserRouter = require("./routes/user-router");
+app.use(myUserRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

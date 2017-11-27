@@ -1,0 +1,29 @@
+<h2> Sign Up</h2>
+
+<%if (typeof errorMessage !== "undefined") { %>
+  <p class="error-message">
+    <%=errorMessage%>
+  </p>
+<%}%>
+
+<form id="form" method="post" action="/process-signup">
+
+  <label for="full-name-input"> Full Name </label>
+  <input id="full-name-input" type="text" placeholder="e.g. Lionel Messi" name="signupFullName" />
+  <br />
+
+  <label for="email-input"> Email </label>
+  <input id="email-input" type="email" placeholder="e.g. goat@barcelona.com " name="signupEmail" />
+  <br />
+
+  <label for="password-input"> Password </label>
+  <input id="password-input" type="password" placeholder="e.g. ronaldosucks2017" name="signupPassword" />
+  <br />
+
+  <button>Submit</button>
+</form>
+
+<p>
+  Already have an account?
+  <a href="/login">Log In</a>
+</p>
