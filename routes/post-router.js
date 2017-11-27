@@ -23,6 +23,9 @@ const thePost = new PostModel(
       title: req.body.postTitle,
       photoUrl: req.body.postPhoto,
       description: req.body.postDescription,
+      location: req.body.postLocation,
+      time: req.body.postTime,
+      contact: req.body.postContact,
       owner: req.user._id
     });
 

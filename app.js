@@ -8,6 +8,8 @@ const layouts      = require('express-ejs-layouts');
 const session      = require('express-session');
 const passport     = require('passport');
 
+require("dotenv").config();
+
 require("./config/mongoose-setup");
 
 require("./config/passport-setup");
@@ -54,6 +56,8 @@ app.use(myUserRouter);
 
 const myPostRouter = require("./routes/post-router");
 app.use(myPostRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

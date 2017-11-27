@@ -7,25 +7,26 @@
   </head>
   <body>
     <header>
-      <h1><%= title %></h1>
+      <a href="/"><h1><%= title %></h1></a>
       <nav>
-        <a href="/"> Home </a>
+        <a href="/">Home</a>
 
         <% if (currentUser) { %>
           <a href="/my-posts">My Posts</a>
-          <a href="/my-posts/new">Add a Post</a>
-          <a href="/settings">Edit Profile </a>
+          <a href="/posts/new">Add a Post</a>
+          <a href="/settings">Edit Profile</a>
           <a href="/logout">Log Out</a>
             <p>
             Hey, <b><%=currentUser.fullName%></b>!
             </p>
       <% } else { %>
-        <a href="/signup"> Sign Up</a>
-        <a href="/login"> Log In</a>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Log In</a>
       <%}%>
       </nav>
 
     </header>
+    <div class="box"></div>
 
     <%- body %>
   </body>

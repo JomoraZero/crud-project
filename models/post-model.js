@@ -11,6 +11,17 @@ const postSchema =  new Schema(
     photoUrl: {
       type: String
     },
+    location: {
+      type: String,
+      required: [true, "Please give us a location for your activity"]
+    },
+    time: {
+      type: String,
+      required: [true, "Please give us a time for your activity"]
+    },
+    contact: {
+      type: String,
+    },
     description: {
       type: String,
       required: [true, "Please describe your activity"]
@@ -25,6 +36,6 @@ const postSchema =  new Schema(
   }
 );
 
-const PostModel = mongoose.model("Post", roomSchema);
+const PostModel = mongoose.model("Post", postSchema);
 
 module.exports = PostModel;

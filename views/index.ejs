@@ -1,1 +1,18 @@
-<p>Welcome to <%= title %></p>
+<h2>Welcome to <%= title %></h2>
+
+<ul>
+  <%listOfPosts.forEach((onePost) => {%>
+    <li>
+      <h3><%=onePost.title%></h3>
+      <img src="<%=onePost.photoUrl%>" />
+      <p><b>Location: </b><%=onePost.location%></p>
+      <p><b>Time: </b><%=onePost.time%></p>
+      <%if (onePost.contact) {%>
+      <p><b>Contact Info: </b><%=onePost.contact%></p>
+    <%}%>
+      <p><%=onePost.description%></p>
+      <p>Posted by: <%=onePost.owner%></p>
+      </p>
+    </li>
+<%  }) %>
+</ul>
