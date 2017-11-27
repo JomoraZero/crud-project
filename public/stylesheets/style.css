@@ -115,18 +115,20 @@ h3 {
 
 ul {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 li {
   list-style-type: none;
   background-color: #FF9226;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
   margin: 10px;
   padding: 10px;
   width: 29%;
-  color: #E7E0D1;
+  color: white;
 }
 
 p {
