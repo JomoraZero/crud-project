@@ -2,13 +2,19 @@ body {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: #ededed;
 }
 
 a {
   color: #F65007;
   padding: 10px;
   text-decoration: none;
+}
+
+.icon {
+  width: auto;
+  height: 35px;
+  position: relative;
 }
 
 header {
@@ -24,7 +30,7 @@ header {
   width: 100%
   margin: 0 auto;
   background-color: white;
-  height: 100px;
+  height: 90px;
 }
 
 h1 {
@@ -58,6 +64,7 @@ h3 {
   margin-bottom: 10px;
   text-align: center;
   width: 100%;
+  margin: 3px;
 }
 
 #form input,
@@ -67,11 +74,12 @@ h3 {
   outline: 0;
   padding: 4px;
   width: 100%;
+  margin: 5px;
 }
 
 #form button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
+  background: #FF9226;
+  border: 1px solid #FF9226;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -86,8 +94,12 @@ h3 {
 
 #form button:hover {
   background: #fff;
-  color: #43a3e6;
+  color: #FF9226;
   transition: .3s ease background;
+}
+
+.signup {
+  text-align: center;
 }
 
 
@@ -113,7 +125,7 @@ li {
   border-radius: 8px;
   margin: 10px;
   padding: 10px;
-  width: 30%;
+  width: 29%;
   color: #E7E0D1;
 }
 
