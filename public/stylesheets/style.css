@@ -59,6 +59,11 @@ h3 {
   font-size: 22px;
 }
 
+h5 {
+  text-align: center;
+  color: grey;
+}
+
 #form {
   margin: 30px auto;
   width: 380px;
@@ -126,15 +131,21 @@ ul {
   flex-wrap: wrap;
 }
 
-li {
+.display-box {
   list-style-type: none;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #ededed;
   border-radius: 8px;
+  margin: 5px;
+  padding: 20px;
+  width: 29%;
+}
+
+.edit-delete {
+  list-style-type: none;
   margin: 10px;
   padding: 10px;
-  width: 29%;
-  color: black; 
+  color:
 }
 
 p {
@@ -144,4 +155,12 @@ p {
 img {
   width: 420px;
   height: auto;
+}
+
+.right {
+  text-align: right;
+}
+
+.name {
+  color: #F65007;
 }

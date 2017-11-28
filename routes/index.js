@@ -7,6 +7,7 @@ router.get('/', (req, res, next) => {
   PostModel
     .find()
     .sort({createdAt: -1})
+    .populate("owner")
     .exec()
     .then((postResults) => {
       res.locals.listOfPosts = postResults;

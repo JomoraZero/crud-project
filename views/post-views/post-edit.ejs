@@ -1,0 +1,26 @@
+<h2>Edit Post</h2>
+
+<form id="form" method="post" action="/my-posts/<%= postDetails._id%>">
+  <label for="title-input"> Post Title </label>
+  <input id="title-input" type="text" name="postTitle" value="<%=postDetails.title%>" placeholder="e.g. Playing Hoops in Miami Tonight!">
+  <br />
+
+  <label for="location-input"> Location </label>
+  <input id="location-input" type="text" name="postLocation" value="<%=postDetails.location%>" placeholder="e.g. American Airlines Arena">
+  <br />
+
+  <label for="time-input"> Date & Time </label>
+  <input id="time-input" type="text" name="postTime" value="<%=postDetails.time%>" placeholder="e.g. Tuesday @ 7:30pm">
+  <br />
+
+  <label for="contact-input"> Contact </label>
+  <input id="contact-input" type="text" name="postContact" value="<%=postDetails.contact%>" placeholder="e.g. cell #: 786 123 4567">
+  <br />
+
+  <label for="description-input"> Description </label>
+  <input id="description-input" type="text" name="postDescription" value="<%=postDetails.description%>"
+    placeholder="e.g. Playing halfcourt bball for a couple hours. Bring however many you want!"/>
+  <br />
+
+  <button>Submit Changes</button>
+</form>

@@ -2,12 +2,19 @@
 
 <ul>
   <%listOfPosts.forEach((onePost) => {%>
-    <li>
+    <li class="display-box">
       <h3><%=onePost.title%></h3>
-      <img src="<%=onePost.photoUrl%>" />
+      <h5><%=onePost.time%></h5>
       <p><%=onePost.location%></p>
-      <p><%=onePost.time%></p>
       <p><%=onePost.description%></p>
+      <ul>
+        <li class="edit-delete">
+          <a href="/my-posts/<%= onePost._id %>/edit">Edit</a>
+        </li>
+        <li class="edit-delete">
+          <a href="/my-posts/<%= onePost._id %>/delete">Delete</a>
+        </li>
+      </ul>
     </li>
 <%  }) %>
 </ul>

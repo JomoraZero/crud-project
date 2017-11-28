@@ -21,7 +21,6 @@ router.post("/posts", (req, res, next) => {
 const thePost = new PostModel(
     {
       title: req.body.postTitle,
-      photoUrl: req.body.postPhoto,
       description: req.body.postDescription,
       location: req.body.postLocation,
       time: req.body.postTime,
@@ -52,6 +51,55 @@ router.get("/my-posts", (req, res, next) => {
   .then((postResults) => {
     res.locals.listOfPosts = postResults;
     res.render("post-views/post-list");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+router.get("/my-posts/:postId/edit", (req, res, next) => {
+  PostModel.findById(req.params.postId)
+  .then((postFromDb) => {
+    res.locals.postDetails = postFromDb;
+    res.render("post-views/post-edit");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+router.post("/my-posts/:postId", (req, res, next) => {
+  PostModel.findById(req.params.postId)
+  .then((postFromDb) => {
+    postFromDb.set({
+      title: req.body.postTitle,
+      location: req.body.postLocation,
+      time: req.body.postTime,
+      contact: req.body.postContact,
+      description: req.body.postDescription
+    });
+
+    res.locals.postDetails = postFromDb;
+
+    return postFromDb.save();
+  })
+  .then(() => {
+    res.redirect(`/my-posts/`);
+  })
+  .catch((err) => {
+    if (err.errors) {
+      res.locals.validationErrors = err.errors;
+      res.render("post-views/post-edit");
+    } else {
+    next(err);
+  }
+  });
+});
+
+router.get("/my-posts/:postId/delete", (req, res, next) => {
+  PostModel.findByIdAndRemove(req.params.postId)
+  .then((postFromDb) => {
+    res.redirect("/my-posts");
   })
   .catch((err) => {
     next(err);

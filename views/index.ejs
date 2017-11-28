@@ -2,16 +2,15 @@
 
 <ul>
   <%listOfPosts.forEach((onePost) => {%>
-    <li>
+    <li class="display-box">
       <h3><%=onePost.title%></h3>
-      <img src="<%=onePost.photoUrl%>" />
+      <h5><%=onePost.time%></h5>
       <p><b>Location: </b><%=onePost.location%></p>
-      <p><b>Time: </b><%=onePost.time%></p>
       <%if (onePost.contact) {%>
-      <p><b>Contact Info: </b><%=onePost.contact%></p>
+      <p><b>Contact: </b><%=onePost.contact%></p>
     <%}%>
       <p><%=onePost.description%></p>
-      <p>Posted by: <%=onePost.owner%></p>
+      <p class="right">Posted by: <b class="name"><%=onePost.owner.fullName%></b></p>
       </p>
     </li>
 <%  }) %>

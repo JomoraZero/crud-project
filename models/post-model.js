@@ -8,9 +8,6 @@ const postSchema =  new Schema(
       type: String,
       required: [true, "Please give us a title"]
     },
-    photoUrl: {
-      type: String
-    },
     location: {
       type: String,
       required: [true, "Please give us a location for your activity"]
@@ -28,7 +25,8 @@ const postSchema =  new Schema(
     },
     owner: {
       type: Schema.Types.ObjectId,
-      require: true
+      require: true,
+      ref: "User"
     }
   },
   {
